@@ -4,6 +4,7 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+    }
     .filter{
         text-align: center;
         margin-right: 2rem;
@@ -12,8 +13,7 @@
     }
     .filter:hover{
         opacity: 1;
-        cursor:pointer
-    }
+        cursor: pointer;
     }
     .tax-info{
         display:none;
@@ -29,40 +29,40 @@
 </style>
 
     <div id="filters">
-        <div class="filter">
+        <div class="filter" data-filter="Trending">
             <div><i class="fa-solid fa-fire"></i></div>
             <p>Trending</p>
         </div>
-        <div class="filter">
+        <div class="filter" data-filter="Rooms">
             <div><i class="fa-solid fa-bed"></i></div>
             <p>Rooms</p>
         </div>
-        <div class="filter">
+        <div class="filter" data-filter="Iconic Cities  ">
             <div><i class="fa-solid fa-mountain-city"></i></div>
             <p>Iconic Cities</p>
         </div>
-        <div class="filter">
+        <div class="filter" data-filter="Mountains">
             <div><i class="fa-solid fa-mountain-sun"></i></div>
             <p>Mountains</p>
         </div>
-        <div class="filter">
+        <div class="filter" data-filter="Castles">
             <div><i class="fa-regular fa-house"></i></div>
             <p>Castles</p>
         </div>
-        <div class="filter">
+        <div class="filter" data-filter="Pools">
             <div><i class="fa-solid fa-person-swimming"></i></div>
             <p>Amazing Pools</p>
         </div>
-        <div class="filter">
+        <div class="filter" data-filter="Camping">
             <div><i class="fa-solid fa-campground"></i></div>
             <p>Camping</p>
         </div>
-        <div class="filter">
+        <div class="filter" data-filter="Farms">
             <div><i class="fa-regular fa-house"></i></div>
             <p>Farms</p>
         </div>
-        <div class="filter">
-            <div><i class="fa-chisel fa-regular fa-house"></i></div>
+        <div class="filter" data-filter="Arctic">
+            <div><i class="fa-regular fa-house"></i></div>
             <p>Arctic</p>
         </div>
         <div class="tax-toogle ">
@@ -107,6 +107,14 @@
                 info.style.display ="none";
             }
         }
+    });
+    const filters = document.querySelectorAll(".filter");
+
+    filters.forEach(filter => {
+      filter.addEventListener("click", () => {
+        const category = filter.dataset.filter;
+        window.location.href = `/listings?categories=${category}`;
+      });
     });
 </script>
 
