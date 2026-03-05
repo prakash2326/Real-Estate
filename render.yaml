@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: project1
+    env: node
+    plan: free
+    autoDeploy: true
+    buildCommand: npm install && npm --prefix frontend install && npm run build:client
+    startCommand: npm run server
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: ATLAS
+        sync: false
+      - key: SECRET
+        sync: false
+      - key: CLOUD_NAME
+        sync: false
+      - key: CLOUD_API_KEY
+        sync: false
+      - key: CLOUD_API_SECRET
+        sync: false
