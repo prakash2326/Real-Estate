@@ -2,8 +2,6 @@ services:
   - type: web
     name: project1
     env: node
-    plan: free
-    autoDeploy: true
     buildCommand: npm install && npm --prefix frontend install && npm run build:client
     startCommand: npm run server
     envVars:
